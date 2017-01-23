@@ -1,0 +1,31 @@
+{
+  "name":"dockerfile-to-singularity-test2",
+  "appId": "jturcino-docker-to-singularity-4.2.3",
+  "batchQueue": "normal",
+  "executionSystem": "jfonner-jetstream-docker",
+  "maxRunTime": "00:30:00",
+  "memoryPerNode": "3GB",
+  "nodeCount": 1,
+  "processorsPerNode": 2,
+  "archive": true,
+  "archiveSystem": "data.iplantcollaborative.org",
+  "archivePath": "/jturcino/files/",
+  "inputs": {
+    "dockerFile":"/jturcino/files/Dockerfile"
+  },
+  "parameters": {
+    "dockerImage":"my-docker-image"
+  },
+  "notifications": [
+    {
+      "url":"https://hooks.slack.com/services/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",
+      "event":"FINISHED",
+      "persistent":true
+    },
+    {
+      "url":"https://hooks.slack.com/services/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",
+      "event":"FAILED",
+      "persistent":true
+    }
+  ]
+}

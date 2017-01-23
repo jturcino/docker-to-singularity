@@ -1,0 +1,29 @@
+{
+  "name":"d2s-bioconda-jellyfish-test2",
+  "appId": "jturcino-docker-to-singularity-4.2.3",
+  "batchQueue": "normal",
+  "executionSystem": "jfonner-jetstream-docker",
+  "maxRunTime": "00:30:00",
+  "memoryPerNode": "3GB",
+  "nodeCount": 1,
+  "processorsPerNode": 2,
+  "archive": true,
+  "archiveSystem":"data.iplantcollaborative.org",
+  "archivePath": "/jturcino/files/",
+  "parameters": {
+    "dockerImage": "quay.io/biocontainers/jellyfish",
+    "imageTag": "2.2.6--0"
+  },
+  "notifications": [
+    {
+      "url":"https://hooks.slack.com/services/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",
+      "event":"FINISHED",
+      "persistent":false
+    },
+    {
+      "url":"https://hooks.slack.com/services/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",
+      "event":"FAILED",
+      "persistent":false
+    }
+  ]
+}

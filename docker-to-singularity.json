@@ -1,0 +1,77 @@
+{"available":true,
+ "checkpointable":false,
+ "defaultMemoryPerNode":3,
+ "defaultProcessorsPerNode":2,
+ "defaultMaxRunTime":"00:30:00",
+ "defaultNodeCount":1,
+ "defaultQueue":"normal",
+ "deploymentPath":"jturcino/apps/docker-to-singularity",
+ "deploymentSystem":"data.iplantcollaborative.org",
+ "executionSystem":"jfonner-jetstream-docker",
+ "executionType":"CLI",
+ "helpURI":"",
+ "label": "",
+ "longDescription":"",
+ "modules":[],
+ "name":"jturcino-docker-to-singularity",
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "parallelism":"SERIAL",
+ "shortDescription":"Transforms the provided docker container to a singularity image.",
+ "tags":["docker", "singularity"],
+ "templatePath":"wrapper.sh",
+ "testPath":"test/test.sh",
+ "version":"4.2.3",
+ "inputs":[
+    {"id":"dockerFile",
+     "details":
+        {"label": "Dockerfile from which to build singularity image.",
+         "description":"The path to the Dockerfile from which the singularity image should be built. If used, the dockerImage parameter is not necessary.",
+         "showArgument":false
+        },
+     "value":
+        {"default":"",
+         "type":"string",
+         "required":false,
+         "visible":true
+        },
+     "semantics":
+        {"ontology":[]
+        }
+    }
+ ],
+ "parameters":[
+    {"id":"dockerImage",
+     "details":
+	{"label":"Docker image to be transformed.",
+	 "description":"The docker container to be transformed into a singularity image. Required if a Dockerfile is not provided. If a Dockerfile is provided, this will be the name of the docker container created, which will be reflected in the name of the singularity image.",
+	 "showArgument":false
+	},
+     "value":
+	{"default":"",
+	 "type":"string",
+	 "required":false,
+	 "visible":true
+	},
+     "semantics":
+	{"ontology":[]
+	}
+    },
+    {"id":"imageTag",
+     "details":
+	{"label":"Tag of docker image",
+	 "description":"The tag of docker image to be pulled (eg. latest). If pulling a quay.io image, use the version number (eg. 2.2.6--0) and please do not use the default! quay.io images do not have the 'latest' tag.",
+	 "showArgument":false
+	},
+     "value":
+	{"default":"latest",
+	 "type":"string",
+	 "required":false,
+	 "visible":true
+	},
+     "semantics":
+	{"ontology":[]
+	}
+    }
+ ],
+ "outputs":[]
+}
