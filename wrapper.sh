@@ -24,6 +24,10 @@ else
         docker build -t $DOCKER_IMAGE $DOCKERFILE_DIR
 fi
 
+# update docker2singularity
+docker rmi johnfonner/docker2singularity
+docker pull johnfonner/docker2singularity
+
 # run docker2singularity
 # docker run -v /var/run/docker.sock:/var/run/docker.sock -v $OUTPUT_DIR:/output --privileged -t --rm singularityware/docker2singularity $DOCKER_IMAGE
 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $OUTPUT_DIR:/output --privileged -t --rm johnfonner/docker2singularity $DOCKER_IMAGE
