@@ -33,6 +33,12 @@ docker pull johnfonner/docker2singularity
 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $OUTPUT_DIR:/output --privileged -t --rm johnfonner/docker2singularity $DOCKER_IMAGE
 
 # removed docker container if created via Dockerfile
-if [ ! -z "$DOCKERFILE" ]; then
-        docker rmi -f $DOCKER_IMAGE
-fi
+#if [ ! -z "$DOCKERFILE" ]; then
+#        docker rmi -f $DOCKER_IMAGE
+#fi
+
+# stop all running docker containers
+docker stop $(docker ps -a -q)
+
+# remove all docker images
+docker rmi -f $(docker ps -a -q)
